@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<head>
+  {% load static %}
+  
+
+     <link rel="stylesheet" href="{% static 'myapp/assets/bootstrap/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+     <link rel="stylesheet" href="{% static 'myapp/assets/fonts/ionicons.min.css' %}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css">
+
+ <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4assets/owl.carousel.min.css"/>
+     
+ 
+ 
+     {% load static %}
+     <link rel="stylesheet" href="{% static 'myapp/assets/bootstrap/css/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'myapp/assets/fonts/font-awesome.min.css' %}">
+     <link rel="stylesheet" href="{% static 'myapp/assets/css/Data-Table-with-Search-Sort-Filter-and-Zoom-using-TableSorter.css' %}">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/css/theme.bootstrap_4.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+     <link rel="stylesheet" href="{% static 'myapp/assets/css/styles.css' %}">
+     <link rel="stylesheet" href="{% static 'myapp/assets/css/Table-with-search-1.css' %}">
+     <link rel="stylesheet" href="{% static 'myapp/assets/css/Table-with-search.css' %}">
+ </head>
+ 
+ <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand alert alert-success" >STUDENT RECORD MANAGEMENT</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        
+        <a class="nav-item nav-link btn btn-primary"  style="margin-left: 10px; " href="{% url 'home' %}"><i class="bi bi-house"></i>Home</a>
+        <a class="nav-item nav-link btn btn-info"  style="margin-left: 10px; " href="{% url 'list' %}"><i class="bi bi-search"></i>Show data</a>
+
+
+        <a class="nav-item nav-link btn btn-warning"  style="margin-left: 10px; " href="{% url 'export' %}"><i class="bi bi-download"></i>Download data</a>
+
+        <a class="nav-item nav-link btn btn-success"  style="margin-left: 10px; " href="{% url 'adddata' %}"><i class="bi bi-person-plus"></i>Add New</a>
+
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+              <a class="nav-link btn btn-outline-dark" style="margin-left: 10px; " href="{% url 'signout' %}">
+                <i class="bi bi-box-arrow-right"> </i>Logout
+              </a>
+             
+          </li>
+        </ul>
+  
+      </div>
+    </div>
+  </nav>
+
+
+ 
+ 
+ <div class="form-group pull-right">
+     <input type="text" class="search form-control" placeholder="Type student's name,id..... ,etc.">
+ </div>
+ <span class="counter pull-right"></span>
+ <table class="table table-bordered  results">
+   <thead>
+     <tr>
+      <th scope="col">Action</th>
+      <th scope="col">id</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">Father Name</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Category</th>
+
+      <th scope="col">Course</th>
+      <th scope="col">Department</th>
+      <th scope="col">lateral Entry</th>
+
+      <th scope="col">City</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Photo</th>
+      <th scope="col">ADHAAR</th>
+      <th scope="col">PAN</th>
+      <th scope="col">10th Marksheet</th>
+      <th scope="col">12th Marksheet</th>
+      <th scope="col">Diploma Marksheet</th>
+      <th scope="col">Graduation Marksheet</th>
+
+      <th scope="col">INCOME CERIFICATE</th>
+      <th scope="col">CASTE CERTIFICATE</th>
+      <th scope="col">CHARACTOR CERTIFICATE</th>
+      <th scope="col">SIGNATURE</th>
+     </tr>
+     <tr class="warning no-result">
+       <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+     </tr>
+   </thead>
+   <tbody>
+    {% for Student_data in student  %}
+      <tr>
+        <td >
+          <a href="/admin/myapp/student_data/{{Student_data.id}}"><button class="btn btn-warning btn-sm"><i class="bi bi-pencil btn btn-warning btn-sm"></i></button></a>
+
+<p></p>
+
+           <form action="{% url 'deletedata' Student_data.id  %}" method="post" >
+             {% csrf_token %}
+            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash btn btn-danger btn-sm"></i></button>
+
+           </form></td>
+          
+
+        <td>{{Student_data.id}}</td>
+        <td><a href="{% url 'application' Student_data.id %}">{{Student_data.first_name}} {{Student_data.middle_name}} {{Student_data.last_name}}</a></td>
+        <td>{{Student_data.fathers_name}}</td>
+        <td>{{Student_data.dob}}</td>
+        <td>{{Student_data.category}}</td>
+        <td>{{Student_data.course}}</td>
+        <td>{{Student_data.department}}</td>
+        <td>{{Student_data.lateral}}</td>
+        <td>{{Student_data.city}}</td>
+        <td>{{Student_data.mobile}}</td>
+        <td><a href="media/{{Student_data.photo}}" download="media/{{Student_data.photo}}">{{Student_data.photo}}</a></td>
+        <td><a href="media/{{Student_data.Adhaar}}" download="media/{{Student_data.Adhaar}}">{{Student_data.Adhaar}}</a></td>
+        <td><a href="media/{{Student_data.pan}}"download="media/{{Student_data.pan}}">{{Student_data.pan}}</a></td>
+        <td><a href="media/{{Student_data.mark10}}"download="media/{{Student_data.mark10}}">{{Student_data.mark10}}</a></td>
+        <td><a href="media/{{Student_data.mark12}}"download="media/{{Student_data.mark12}}">{{Student_data.mark12}}</a></td>
+        <td><a href="media/{{Student_data.mark_diploma}}"download="media/{{Student_data.mark12}}">{{Student_data.mark_diploma}}</a></td>
+        <td><a href="media/{{Student_data.mark_graduation}}"download="media/{{Student_data.mark12}}">{{Student_data.mark_graduation}}</a></td>
+        <td><a href="media/{{Student_data.income}}"download="media/{{Student_data.income}}">{{Student_data.income}}</a></td>
+        <td><a href="media/{{Student_data.caste}}"download="media/{{Student_data.caste}}">{{Student_data.caste}}</a></td>
+        <td><a href="media/{{Student_data.charactor_certificate}}"download="media/{{Student_data.charactor_certificate}}">{{Student_data.charactor_certificate}}</a></td>
+        <td><a href="media/{{Student_data.sign}}"download="media/{{Student_data.sign}}">{{Student_data.sign}}</a></td>
+
+
+        
+      </tr>
+      {% endfor %} 
+    
+  
+
+ 
+   </tbody>
+ </table>
+     <script src="{% static 'myapp/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'myapp/assets/js/Data-Table-with-Search-Sort-Filter-and-Zoom-using-TableSorter.js' %}"></script>
+     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/jquery.tablesorter.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-filter.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.2/js/widgets/widget-storage.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+     <script src="{% static 'myapp/assets/js/Table-with-search.js' %}"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+         <div class="row">
+   <script>
+     if ( window.history.replaceState ) {
+       window.history.replaceState( null, null, window.location.href );
+     }
+     </script>
+ 
+
+ </body>
+ 
+ </html>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Students Record Management</title>
+    <link rel="stylesheet" href="{% static 'myapp/auth/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/auth/assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="{% static 'myapp/auth/assets/css/Login-Red.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/auth/assets/css/styles.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row mh-100vh" style="background-image:url({% static 'myapp/auth/assets/img/183713.jpg' %});background-size:cover;">
+            <div class="col-12 col-sm-8 col-md-6 col-lg-6 offset-sm-2 offset-md-3 offset-lg-3 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0 my-box-shadow" data-aos="zoom-in" data-aos-once="true" style="/*background-color:transparent !important;*/">
+                <div class="m-auto w-lg-75 w-xl-50" style="padding:47px;border:1px solid gray;">
+                    <div class="row justify-content-center" style="margin-bottom:37px;">
+
+                        {% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+{% endfor %}
+            <div class="col-auto align-items-center align-content-center" style="/*text-align:center;*/"><i class="fa fa-user" data-aos="flip-down" data-aos-delay="100" data-aos-once="true" style="/*text-align: center;*/font-size: 87px;color: #002f5b;"></i></div>
+            </div>
+            
+
+                    <form method="post" action="" class="mb-2>
+                        {% csrf_token %}
+                        {% csrf_token %}
+                    
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input  style=" background:black;" type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" Required>
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="pass1">Password</label>
+                            <input  style=" background:black;" type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Your Password" Required>
+                            
+                        </div>
+                        <div class="row justify-content-end" data-aos="slide-right" data-aos-once="true">
+                            <div class="col-auto align-self-center " style="/*text-align:right;*/"><button class="btn btn-danger d-flex outline " data-bss-hover-animate="rubberBand" style="border-radius: 20px; background-color: rgb(5, 168, 67); color: #002f5b;" type="submit">Login</button></div>
+                        </div>
+                    </form>
+                    <a href="/signup">I don't have an account </a>
+
+
+
+
+                    <p class="text-end mt-3 mb-0"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'myapp/auth/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'myapp/auth/assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+
+</html>

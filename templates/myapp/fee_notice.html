@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Record Management</title>
+</head>
+
+  
+
+
+
+{% load static %}
+
+  <!-- Favicons -->
+  <link href="{% static 'myapp/assets_home/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'myapp/assets_home/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'myapp/assets_home/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/owl.carousel/myapp/assets_home/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'myapp/assets_home/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand alert alert-success" >STUDENT RECORD MANAGEMENT</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        
+        <a class="nav-item nav-link btn btn-primary"  style="margin-left: 10px; " href="{% url 'home' %}"><i class="bi bi-house"></i>Home</a>
+        <a class="nav-item nav-link btn btn-info"  style="margin-left: 10px; " href="{% url 'list' %}"><i class="bi bi-search"></i>Show data</a>
+
+
+        <a class="nav-item nav-link btn btn-warning"  style="margin-left: 10px; " href="{% url 'noticefile' %}"><i class="bi bi-download"></i>nstallments data</a>
+
+        <a class="nav-item nav-link btn btn-success"  style="margin-left: 10px; " href="{% url 'adddata' %}"><i class="bi bi-person-plus"></i>Add New</a>
+
+        <a class="nav-item nav-link btn btn-secondary"  style="margin-left: 10px; " href="{% url 'fee' %}"><i class="bi bi-activity"></i>All Installments</a>
+
+
+              <a class="nav-link btn btn-outline-danger" style="margin-left: 10px; " href="{% url 'signout' %}">
+                <i class="bi bi-box-arrow-right"> </i>Logout
+              </a>
+
+
+              <a class="nav-item nav-link btn btn"  style="margin-left: 360px; color: green; " href="{% url 'notice' %}" ><i class="bi bi-bell"></i>Notices</a>
+            
+        
+
+   
+
+       
+  
+      </div>
+    </div>
+  </nav>
+
+<h1 class="bg-success text-center">Pending Installments Notices</h1>
+  
+
+
+<form class="form-control">
+
+<li class="list-group-item" style="color: green;"><b> FULL NAME  || 'FATHER'S NAMAE'|| 'CATEGORY'|| MOBILE NO.|| 'COURSE'|| 'DEPARTMENT'|| 'INSTALLMENT DATE' || 'INSTALLMENT AMMOUNTS' </li></b> </li><br>
+
+{% for temp in list1  %}
+
+
+<ul class="list-group list-group-numbered">
+  <li class="list-group-item"><b>{{temp}}</b> </li>
+
+</ul>
+
+
+{% endfor %}
+
+
+<button class="nav-item nav-link btn btn-warning"><a href="{% url 'noticefile' %}"><i class="bi bi-download"></i>Download installments data</a></button>
+
+</form>
+
+
+
+        
+
+
+
+
+  <!-- Vendor JS Files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <script src="{% static 'myapp/assets_home/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/aos/aos.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'myapp/assets_home/js/main.js' %}"></script>
+
+
+
+

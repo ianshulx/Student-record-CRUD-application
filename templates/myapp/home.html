@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Record Management</title>
+</head>
+
+  {% csrf_token %}
+
+
+
+{% load static %}
+
+  <!-- Favicons -->
+  <link href="{% static 'myapp/assets_home/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'myapp/assets_home/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'myapp/assets_home/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/venobox/venobox.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/owl.carousel/myapp/assets_home/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'myapp/assets_home/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'myapp/assets_home/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand alert alert-success" >STUDENT RECORD MANAGEMENT</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        
+        <a class="nav-item nav-link btn btn-primary"  style="margin-left: 10px; " href="{% url 'home' %}"><i class="bi bi-house"></i>Home</a>
+        <a class="nav-item nav-link btn btn-info"  style="margin-left: 10px; " href="{% url 'list' %}"><i class="bi bi-search"></i>Show data</a>
+
+
+        <a class="nav-item nav-link btn btn-warning"  style="margin-left: 10px; " href="{% url 'export' %}"><i class="bi bi-download"></i>Download data</a>
+
+        <a class="nav-item nav-link btn btn-success"  style="margin-left: 10px; " href="{% url 'adddata' %}"><i class="bi bi-person-plus"></i>Add New</a>
+
+        <!-- <a class="nav-item nav-link btn btn-secondary"  style="margin-left: 10px; " href="{% url 'fee' %}"><i class="bi bi-activity"></i>Installments & scholar</a> -->
+
+
+              <a class="nav-link btn btn-outline-danger" style="margin-left: 10px; " href="{% url 'signout' %}">
+                <i class="bi bi-box-arrow-right"> </i>Logout
+              </a>
+
+
+              <a class="nav-item nav-link btn btn"  style="margin-left: 360px; color: green; " href="{% url 'notice' %}" ><i class="bi bi-bell"></i>Notices</a>
+            
+        
+
+   
+
+       
+  
+      </div>
+    </div>
+  </nav>
+  <section>
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg">
+      <div class="container" data-aos="fade-up">
+<a href="{% url 'list' %}">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box iconbox-blue">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174"></path>
+                </svg>
+                <i class="bi bi-search"></i>
+              </div>
+              <h4><a href="{% url 'list' %}">Check Students Record</a></h4>
+              <p>Click here to check Students recod, search a student or download documents etc....</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="{% url 'adddata' %}">
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box iconbox-orange ">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
+                </svg>
+                <i class="bi bi-person-plus-fill"></i>
+              </div>
+              <h4><a href="{% url 'adddata' %}">Register A new Student</a></h4>
+              <p>Click here to add a new Student's information and documents</p>
+            </div>
+          </div>
+        </a>
+          
+        <a href="/admin">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box iconbox-teal ">
+              <div class="icon">
+                <svg width="100" height="100" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke="none" stroke-width="0" fill="#f5f5f5" d="M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426"></path>
+                </svg>
+                <i class="bi bi-sliders"></i>
+              </div>
+              <h4><a href="/admin">Admin Pannel</a></h4>
+              <p>Click here to activate or create a new user to access, change password and other settings. </p>
+            </div>
+          </div>
+        </a>
+
+        <div class=""></div>  
+        
+        </section>
+        
+        <section><!-- ======= Footer ======= -->
+
+
+  <footer id="footer">
+
+    <div class="container d-md-flex py-4">
+
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          &copy; Copyright <strong><span><a href="https://www.instagram.com/technobix/"> Technobix </a></span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed & developed   by <a href="https://www.technobix.tech">Technobix</a>
+        </div>
+      </div>
+         <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <!-- <a href="https://twitter.com/codingnova" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+      <!-- <a href="https://www.facebook.com/hackerscore" class="facebook"><i class="bx bxl-facebook"></i></a> -->
+      <a href="https://www.instagram.com/technobix/" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="https://www.github.com/ianshulx/" class="linkedin"><i class="bx bxl-github"></i></a>
+    </div>
+    </div>
+  </footer><!-- End Footer -->
+
+</section>
+
+
+
+
+  <!-- Vendor JS Files -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <script src="{% static 'myapp/assets_home/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/venobox/venobox.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'myapp/assets_home/vendor/aos/aos.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'myapp/assets_home/js/main.js' %}"></script>
+
+
+    
+  </body>
+
+
+
+
